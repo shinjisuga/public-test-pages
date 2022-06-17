@@ -15,7 +15,7 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
-        shellcommand: "asciidoctor src/README.adoc -o build/README.html" 
+        shellcommand: "asciidoctor src/README.adoc -o build/index.html" 
     - name: move deploy files
       run: |
         sudo mv build/* docs/
