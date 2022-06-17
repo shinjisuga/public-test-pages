@@ -18,12 +18,12 @@ jobs:
         shellcommand: "asciidoctor src/README.adoc -o public/README.html" 
     - name: move deploy files
       run: |
-        mkdir build/
-        sudo mv public/* build/
-        ls build
+        mkdir docs/
+        sudo mv public/* docs/
+        ls docs
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./docs
         publish_branch: gh-pages
