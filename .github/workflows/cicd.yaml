@@ -15,9 +15,15 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
-        shellcommand: "asciidoctor src/README.adoc -o docs/README.html" 
-    # - name: Save AsciiDoc step
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: Output-document
-    #     path: public/test.html
+        shellcommand: "asciidoctor src/README.adoc -o public/README.html" 
+    - name: move deploy files
+      run: |
+        mkdir build/
+        mv public/* build/
+        ls build
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        publish_branch: gh-pages
