@@ -19,7 +19,7 @@ jobs:
     - name: move deploy files
       run: |
         mkdir build/
-        mv public/* build/
+        sudo mv public/* build/
         ls build
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
