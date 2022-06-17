@@ -16,6 +16,13 @@ jobs:
       uses: Analog-inc/asciidoctor-action@master
       with:
         shellcommand: "asciidoctor src/README.adoc -o build/index.html" 
+    - name: Commit updated files
+      run: |
+          git add build/
+          git config user.name cnp-survey-runner
+          git config user.email cnp-survey-runner@example.com
+          git commit -m "test"
+          git push origin main
     - name: move deploy files
       run: |
         sudo mv build/* docs/
