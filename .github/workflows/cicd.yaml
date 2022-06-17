@@ -15,7 +15,7 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
-        shellcommand: "asciidoctor test.adoc -o docs/test.html" 
+        shellcommand: "asciidoctor src/README.adoc -o docs/README.html" 
     # - name: Save AsciiDoc step
     #   uses: actions/upload-artifact@v1
     #   with:
