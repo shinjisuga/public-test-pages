@@ -15,11 +15,10 @@ jobs:
       id: documents
       uses: Analog-inc/asciidoctor-action@master
       with:
-        shellcommand: "asciidoctor src/README.adoc -o public/README.html" 
+        shellcommand: "asciidoctor src/README.adoc -o build/README.html" 
     - name: move deploy files
       run: |
-        mkdir docs/
-        sudo mv public/* docs/
+        sudo mv build/* docs/
         ls docs
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
